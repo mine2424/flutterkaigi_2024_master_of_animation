@@ -48,3 +48,57 @@ class _TestAnimatedSlideScreenState extends State<TestAnimatedSlideScreen> {
     );
   }
 }
+
+class TestImprovedAnimatedSlideScreen extends StatefulWidget {
+  const TestImprovedAnimatedSlideScreen({super.key});
+
+  @override
+  State<TestImprovedAnimatedSlideScreen> createState() =>
+      _TesInprovedtAnimatedSlideScreenState();
+}
+
+class _TesInprovedtAnimatedSlideScreenState
+    extends State<TestImprovedAnimatedSlideScreen> {
+  var isAnimated = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Test AnimatedContainer'),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  isAnimated = !isAnimated;
+                });
+              },
+              child: const Text('Animation'),
+            ),
+            RepaintBoundary(
+              child: AnimatedSlide(
+                offset: Offset(isAnimated ? 1 : 0, 0),
+                duration: const Duration(milliseconds: 300),
+                child: Column(
+                  children: List.generate(
+                    1000,
+                    (index) => const SizedBox(
+                      width: double.infinity,
+                      child: FlutterLogo(size: 100),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

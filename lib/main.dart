@@ -3,6 +3,7 @@ import 'package:flutter_kaigi_2024_master_of_animation/test_animated_container_s
 import 'package:flutter_kaigi_2024_master_of_animation/test_animated_slide_screen.dart';
 import 'package:flutter_kaigi_2024_master_of_animation/test_fade_transition_screen.dart';
 import 'package:flutter_kaigi_2024_master_of_animation/test_parallax_screen.dart';
+import 'package:flutter_kaigi_2024_master_of_animation/test_rotate_flutter_logo_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,6 +56,16 @@ class DebugListScreen extends StatelessWidget {
             },
           ),
           ListTile(
+            title: const Text('Test Improved AnimatedSlide'),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const TestImprovedAnimatedSlideScreen(),
+                ),
+              );
+            },
+          ),
+          ListTile(
             title: const Text('Test FadeTransition'),
             onTap: () {
               Navigator.of(context).push(
@@ -70,6 +81,16 @@ class DebugListScreen extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const TestParallaxScreen(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Test Rotate Flutter Logo'),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const TestRotateFlutterLogoScreen(),
                 ),
               );
             },
